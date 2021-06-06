@@ -1,0 +1,21 @@
+... where phi is right ascension and theta is (90-declination)...
+
+cos(theta_prime) = cos(theta0)*cos(theta) + sin(theta0)*sin(theta)*cos(phi-phi0)
+
+sin(phi_prime-phi_prime_0) = sin(phi - phi_0)*sin(theta)/sin(theta_prime)
+
+... phi_0_prime is the angle from the longitude prime line in the new coordinate
+system to the old coordinate system.
+
+Spacecraft Attitude and Determination, Wertz, Appendix E Coordinate Transformations
+
+------------------------------------------------------------------------------------------------------------
+
+theta_prime = acos(cos(23.4*PI/180.0)*cos(theta*PI/180.0) + sin(23.4*PI/180.0)*sin(theta*PI/180.0))
+
+phi_prime = asin(sin(phi - phi_0)*sin(theta)/sin(theta_prime))+phi_prime_0
+
+------------------------------------------------------------------------------------------------------------
+
+Discarded my original usage of the above method, and instead used basic linear algebra coordinate transformations
+as described in "Linear Algebra and Its Applications" by David C. Lay.
